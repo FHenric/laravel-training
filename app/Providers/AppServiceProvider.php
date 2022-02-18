@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Collaborator;
+use App\Example;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,10 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app-> bind('App\Example', function () {
-            $collaborator = new Collaborator();
-            $foo = 'foobar';
-            return new \App\Example($collaborator, $foo);
+        $this->app->bind('example',function ()
+        {
+            return new Example();
         });
     }
 

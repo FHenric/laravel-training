@@ -4,14 +4,8 @@ namespace App;
 
 class Example
 {
-    protected $colaborator;
-
-    protected $foo;
-
-    public function __construct(Collaborator $colaborator, $foo)
+    public function handle()
     {
-        $this->colaborator = $colaborator;
-
-        $this->foo = $foo;
+        return 'paunocu paunabuceta';
     }
 }

@@ -17,11 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PagesController@home');
 
-// Route::get('/', function () {
-//     $example = resolve(\App\Example::class);
+Route::get('/payments/create', "PaymentsController@create")->middleware('auth');
 
-//     ddd($example);
-// });
+Route::get('/contact', 'ContactController@show');
+Route::post('/contact', 'ContactController@store');
 
 Route::get('/articles', 'ArticlesController@index')->name('articles.index');
 Route::post('/articles', 'ArticlesController@store');
