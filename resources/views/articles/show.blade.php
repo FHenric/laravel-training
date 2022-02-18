@@ -11,8 +11,14 @@
                     </div>
 
                     <div>
-                        <p class='content block'>{{$article->body}}</p>
+                        <h5 class='block'>{{$article->body}}</h5>
                     </div>
+
+                    <p>
+                        @foreach ($article->tags as $tag)
+                            <a href="{{route('articles.index', ['tag' => $tag->name])}}">{{$tag->name}}</a>
+                        @endforeach
+                    </p>
             </div>
         </div>
     </div>

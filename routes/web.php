@@ -11,12 +11,17 @@
 |
 */
 
+use App\Container;
 use App\Http\Controllers\ArticlesController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@home');
+
+// Route::get('/', function () {
+//     $example = resolve(\App\Example::class);
+
+//     ddd($example);
+// });
 
 Route::get('/articles', 'ArticlesController@index')->name('articles.index');
 Route::post('/articles', 'ArticlesController@store');

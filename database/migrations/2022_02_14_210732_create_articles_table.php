@@ -15,10 +15,17 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->text('excerpt');
             $table->text('body');
             $table->timestamps();
+
+            //faz com que a column 'user_id' se referencie á column 'id' na table 'users' e quando deletado fará um efeito cascata deletando todos associados
+            $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onDelete('cascade');
         });
     }
 
